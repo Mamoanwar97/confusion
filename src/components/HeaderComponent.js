@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { Navbar, NavbarBrand, Nav, NavbarToggler, Collapse, NavItem, Jumbotron,
+import { Navbar, NavbarBrand, Nav, NavbarToggler,
+    Collapse, NavItem, Jumbotron,
     Button, Modal, ModalHeader, ModalBody,
     Form, FormGroup, Input, Label } from 'reactstrap';
 import { NavLink } from 'react-router-dom';
@@ -24,7 +25,7 @@ class Header extends Component {
             + " Remember: " + this.remember.checked);
         event.preventDefault();
       }
-      
+
       toggleNav() {
         this.setState({
           isNavOpen: !this.state.isNavOpen
