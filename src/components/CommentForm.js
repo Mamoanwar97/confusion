@@ -3,7 +3,6 @@ import { Button, Row, Col, Label,
          Modal, ModalHeader, ModalBody } from 'reactstrap';
 import { Control, LocalForm, Errors } from 'react-redux-form';
 
-
 const required = (val) => val && val.length;
 const maxLength = (len) => (val) => !(val) || (val.length <= len);
 const minLength = (len) => (val) => val && (val.length >= len);
@@ -37,7 +36,7 @@ class CommentForm extends Component{
       return (
         <div>
           <Modal isOpen={this.state.isModalOpen} toggle={this.toggleModal}>
-              <ModalHeader toggle={this.toggleModal}>Submit Comment</ModalHeader>
+              <ModalHeader toggle={this.toggleModal}>Submit comment</ModalHeader>
               <ModalBody>
               <LocalForm onSubmit={(values) => this.handleSubmit(values)}>
                 <Row className="form-group">
@@ -60,7 +59,9 @@ class CommentForm extends Component{
                               placeholder="Name"
                               className="form-control"
                               validators={{
-                                  required, minLength: minLength(3), maxLength: maxLength(15)
+                                  required,
+                                  minLength: minLength(3),
+                                  maxLength: maxLength(15)
                               }}
                                />
                           <Errors
@@ -79,8 +80,7 @@ class CommentForm extends Component{
                       <Label htmlFor="message" md={12}>Your Feedback</Label>
                       <Col md={12}>
                           <Control.textarea model=".message" id="message" name="message"
-                              rows="6"
-                              className="form-control" />
+                              rows="6" className="form-control" />
                       </Col>
                   </Row>
                   <Row className="form-group">

@@ -1,10 +1,9 @@
 import React,{ Component} from 'react';
-import { Card, CardImg, CardText, CardBody,
-         CardTitle, Breadcrumb, BreadcrumbItem,
-         Button, Row, Col, Label,
+import { Card, CardImg, CardText, CardBody, CardTitle,
+         Breadcrumb, BreadcrumbItem, Button, Row, Col, Label,
          Modal, ModalHeader, ModalBody } from 'reactstrap';
-import { Link } from 'react-router-dom';
 import { Control, LocalForm, Errors } from 'react-redux-form';
+import { Link } from 'react-router-dom';
 
 
 const required = (val) => val && val.length;
@@ -63,7 +62,9 @@ class CommentForm extends Component{
                               placeholder="Name"
                               className="form-control"
                               validators={{
-                                  required, minLength: minLength(3), maxLength: maxLength(15)
+                                  required,
+                                  minLength: minLength(3),
+                                  maxLength: maxLength(15)
                               }}
                                />
                           <Errors
@@ -81,9 +82,8 @@ class CommentForm extends Component{
                   <Row className="form-group">
                       <Label htmlFor="message" md={12}>Your Feedback</Label>
                       <Col md={12}>
-                          <Control.textarea model=".message" id="message" name="message"
-                              rows="6"
-                              className="form-control" />
+                          <Control.textarea model=".message" id="message"
+                            name="message" rows="6" className="form-control" />
                       </Col>
                   </Row>
                   <Row className="form-group">
