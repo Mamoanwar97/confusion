@@ -5,6 +5,7 @@ import { Card, CardImg, CardText, CardBody, CardTitle,
 import { Control, LocalForm, Errors } from 'react-redux-form';
 import { Link } from 'react-router-dom';
 import { Loading } from './LoadingComponent';
+import { baseUrl } from '../shared/baseUrl';
 
 
 
@@ -36,7 +37,7 @@ class CommentForm extends Component{
         console.log('Current State is: ' + JSON.stringify(values));
         alert('Current State is: ' + JSON.stringify(values));
 
-        this.props.addComment(this.props.dishId, values.rating, values.author, values.comment);
+        this.props.postComment(this.props.dishId, values.rating, values.author, values.comment);
         this.toggleModal();
         // event.preventDefault();
     }
@@ -111,7 +112,7 @@ class CommentForm extends Component{
 
 }
 
-  function RenderComments({comments, addComment, dishId}){
+  function RenderComments({comments, postComment, dishId}){
     if(comments != null)
     {
       return comments.map((comment) => {
@@ -153,7 +154,7 @@ class CommentForm extends Component{
           return(
             <div  className="col-12 col-md-5 m-1">
               <Card>
-                  <CardImg top src={dish.image} alt={dish.name} />
+                  <CardImg top src={ baseUrl + dish.image} alt={dish.name} />
                   <CardBody>
                     <CardTitle>{dish.name}</CardTitle>
                     <CardText>{dish.description}</CardText>
@@ -187,7 +188,7 @@ class CommentForm extends Component{
           <div  className="col-12 col-md-5 m-1">
             <h4>Comments</h4>
             <RenderComments comments = {props.comments}/>
-            <CommentForm dishId={props.dish.id} addComment={props.addComment}/>
+            <CommentForm dishId={props.dish.id} postComment={props.postComment}/>
           </div>
         </div>
       </div>
