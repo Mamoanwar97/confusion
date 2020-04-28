@@ -10,6 +10,8 @@ export const Comments = (state = { errMess: null, comments:[]}, action) => {
 
     case ActionTypes.ADD_COMMENT:
         var comment = action.payload;
+        console.log('Current State is: ' + JSON.stringify(comment));
+        alert('Current State is: ' + JSON.stringify(comment));
         return { ...state, comments: state.comments.concat(comment)};
 
     default:
